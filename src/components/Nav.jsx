@@ -1,8 +1,11 @@
 import { headerLogo } from "../assets/images";
-import { hamburger } from "../assets/icons";
+import { close, hamburger } from "../assets/icons";
 import { navLinks } from "../constants";
 
-const Nav = () => {
+const Nav = ({ isOpen, onClick }) => {
+  const handleClick = () => {
+    onClick();
+  };
   return (
     <header className="padding-x py-8 absolute z-10 w-full">
       <nav className="flex justify-between items-center max-container">
@@ -21,9 +24,15 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-        <div className="lg:hidden">
-          <img src={hamburger} alt="Hamburger" width={25} height={25} />
-        </div>
+
+        <button type="button" className="lg:hidden" onClick={handleClick}>
+          <img
+            src={isOpen ? close : hamburger}
+            alt="Hamburger"
+            width={25}
+            height={25}
+          />
+        </button>
       </nav>
     </header>
   );

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Nav from "./components/Nav";
+import SideBar from "./components/SideBar";
 import {
   Hero,
   Subscribe,
@@ -11,9 +13,15 @@ import {
 } from "./sections";
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleHamburgerBtn = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <main className="relative">
-      <Nav />
+      <Nav isOpen={isOpen} onClick={toggleHamburgerBtn} />
+      {isOpen && <SideBar isOpen={isOpen} onClick={toggleHamburgerBtn} />}
       <section className="xl:padding-l wide:padding-r padding-b">
         <Hero />
       </section>
