@@ -1,9 +1,17 @@
 import ReviewCard from "../components/ReviewCard";
-import { reviews } from "../constants";
+import { leftAnimationVariant, reviews } from "../constants";
+import { motion } from "framer-motion";
 
 const CustomerReviews = () => {
   return (
-    <section className="max-container">
+    <motion.section
+      variants={leftAnimationVariant}
+      initial={leftAnimationVariant.hidden}
+      whileInView={leftAnimationVariant.visible}
+      transition={leftAnimationVariant.transition}
+      viewport={{ once: true }}
+      className="max-container"
+    >
       <h3 className="font-palanquin text-center text-4xl font-bold">
         What Our
         <span className="text-coral-red"> Customers </span>Say?
@@ -24,7 +32,7 @@ const CustomerReviews = () => {
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

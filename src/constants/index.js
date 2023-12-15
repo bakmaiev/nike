@@ -144,3 +144,15 @@ export const socialMedia = [
   { src: twitter, alt: "twitter logo" },
   { src: instagram, alt: "instagram logo" },
 ];
+
+export const leftAnimationVariant = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0 },
+  transition: { duration: 1 },
+};
+
+export const rightAnimationVariant = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
+  transition: { duration: 1 },
+};

@@ -3,18 +3,16 @@ import { arrowRight } from "../assets/icons";
 import { bigShoe1 } from "../assets/images";
 import Button from "../components/Button";
 import ShoeCard from "../components/ShoeCard";
-import { shoes, statistics } from "../constants";
+import { rightAnimationVariant, shoes, statistics } from "../constants";
 import { motion } from "framer-motion";
 
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
+
   return (
-    <motion.section
+    <section
       id="home"
       className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 max-container"
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
     >
       <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full max-xl:padding-x pt-28">
         <p className="text-xl font-montserrat text-coral-red">
@@ -44,7 +42,14 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
+      <motion.div
+        variants={rightAnimationVariant}
+        initial={rightAnimationVariant.hidden}
+        whileInView={rightAnimationVariant.visible}
+        transition={rightAnimationVariant.transition}
+        viewport={{ once: true }}
+        className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center"
+      >
         <img
           src={bigShoeImg}
           alt="shoe collection"
@@ -65,8 +70,8 @@ const Hero = () => {
             </div>
           ))}
         </div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };
 

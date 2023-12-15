@@ -1,6 +1,8 @@
 import { arrowRight } from "../assets/icons";
 import { offer } from "../assets/images";
 import Button from "../components/Button";
+import { motion } from "framer-motion";
+import { rightAnimationVariant } from "../constants";
 
 const SpecialOffer = () => {
   return (
@@ -14,7 +16,14 @@ const SpecialOffer = () => {
           className="object-contain w-full"
         />
       </div>
-      <div className="flex flex-1 flex-col">
+      <motion.div
+        variants={rightAnimationVariant}
+        initial={rightAnimationVariant.hidden}
+        whileInView={rightAnimationVariant.visible}
+        transition={rightAnimationVariant.transition}
+        viewport={{ once: true }}
+        className="flex flex-1 flex-col"
+      >
         <h2 className="text-4xl font-palanquin font-bold">
           <span className="text-coral-red">Special </span>
           Offer
@@ -38,7 +47,7 @@ const SpecialOffer = () => {
             textColor="text-slate-gray"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

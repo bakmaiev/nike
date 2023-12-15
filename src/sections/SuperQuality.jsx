@@ -1,5 +1,7 @@
 import { shoe8 } from "../assets/images";
 import Button from "../components/Button";
+import { motion } from "framer-motion";
+import { rightAnimationVariant } from "../constants";
 
 const SuperQuality = () => {
   return (
@@ -26,7 +28,14 @@ const SuperQuality = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex justify-center items-center">
+      <motion.div
+        variants={rightAnimationVariant}
+        initial={rightAnimationVariant.hidden}
+        whileInView={rightAnimationVariant.visible}
+        transition={rightAnimationVariant.transition}
+        viewport={{ once: true }}
+        className="flex-1 flex justify-center items-center"
+      >
         <img
           src={shoe8}
           alt="product detail"
@@ -34,7 +43,7 @@ const SuperQuality = () => {
           height={522}
           className="object-contain"
         />
-      </div>
+      </motion.div>
     </section>
   );
 };
