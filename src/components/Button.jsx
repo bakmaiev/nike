@@ -5,10 +5,12 @@ const Button = ({
   textColor,
   borderColor,
   fullWidth,
+  onClick,
 }) => {
   return (
     <button
-      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none
+      onClick={onClick}
+      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none hover:scale-105 transition-all
       ${
         backgroundColor
           ? `${backgroundColor} ${textColor} ${borderColor}`
